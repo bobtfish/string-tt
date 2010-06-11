@@ -13,4 +13,12 @@ test_requires 'Test::More' => '0.88';
 test_requires 'Test::TableDriven';
 test_requires 'ok';
 
+if ($Module::Install::AUTHOR) {
+    system("pod2text lib/String/TT.pm > README")
+        and die;
+}
+
+resources repository => 'http://github.com/jrockway/string-tt.git';
+
 WriteAll();
+
