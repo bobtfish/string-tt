@@ -8,8 +8,9 @@ requires 'List::Util';
 requires 'PadWalker';
 requires 'Sub::Exporter';
 requires 'Carp';
-build_requires 'Test::More';
-build_requires 'Test::TableDriven';
-build_requires 'ok';
+test_requires 'Test::Exception';
+test_requires 'Test::More' => '0.88';
+test_requires 'Test::TableDriven';
+test_requires 'ok';
 
 WriteAll();

@@ -2,7 +2,7 @@ package String::TT;
 use strict;
 use warnings;
 use PadWalker qw(peek_my);
-use Carp qw(confess);
+use Carp qw(confess croak);
 use Template;
 use List::Util qw(min);
 use Sub::Exporter -setup => {
@@ -53,7 +53,8 @@ sub tt($) {
 
     my $t = _build_tt_engine;
     my $output;
-    $t->process(\$template, \%transformed_vars, \$output);
+    $t->process(\$template, \%transformed_vars, \$output)
+        || croak $t->error;
     return $output;
 }
 
